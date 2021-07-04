@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "reviews")
-public class UserService {
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,7 @@ public class UserService {
     @JoinColumn(name = "service_id")
     private Service service;
 
-    public UserService() {
+    public Review() {
     }
 
     public Long getId() {
