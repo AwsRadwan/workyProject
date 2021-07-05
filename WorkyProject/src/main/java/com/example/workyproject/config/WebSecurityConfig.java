@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.
                 authorizeRequests()
                 .antMatchers("/css/**", "/js/**", "/line-awesome/**", "/images/**", "/font-awesome/**", "/bootstrap4/**",
-                        "/registration").permitAll() // Permit all paths and access to css and js files
+                        "/registration" , "/").permitAll() // Permit all paths and access to css and js files
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")    // permit access to admin path or certain files only if has role admin
                 .anyRequest().authenticated()
                 .and()
