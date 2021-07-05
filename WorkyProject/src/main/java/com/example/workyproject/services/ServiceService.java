@@ -1,7 +1,11 @@
 package com.example.workyproject.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
+import com.example.workyproject.models.Category;
 import com.example.workyproject.repositories.CategoryRepo;
 import com.example.workyproject.repositories.ReviewRepo;
 import com.example.workyproject.repositories.RoleRepo;
@@ -25,5 +29,125 @@ public class ServiceService {
 		this.reviewRepo = reviewRepo;
 		this.roleRepo = roleRepo;
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	public List<com.example.workyproject.models.Service> getAllServices(){
+//		return this.serviceRepo.findAll();
+//	}
+//	
+//	public com.example.workyproject.models.Service getSerById(Long id) {
+//		Optional<com.example.workyproject.models.Service> c = serviceRepo.findById(id);
+//    	
+//    	if(c.isPresent()) {
+//            return c.get();
+//    	} else {
+//    	    return null;
+//    	}
+//	}
+//
 }

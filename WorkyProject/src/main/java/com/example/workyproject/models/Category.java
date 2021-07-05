@@ -21,6 +21,8 @@ public class Category {
     private Date createdAt;
     private Date updatedAt;
 
+    private String img;
+    
     //RelationShips
     //-------------------------------------------------------------------------------------
     //Categories                                                                           |
@@ -30,6 +32,11 @@ public class Category {
     //-------------------------------------------------------------------------------------
     //Reviews                                                                              |
     //-------------------------------------------------------------------------------------
+    
+    @OneToMany(mappedBy = "category",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    List<Service> services;
 
     //Relationships goes here
 
@@ -44,8 +51,26 @@ public class Category {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    
 
-    public String getName() {
+    public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public List<Service> getServices() {
+		return services;
+	}
+
+	public void setServices(List<Service> services) {
+		this.services = services;
+	}
+
+	public String getName() {
         return name;
     }
 

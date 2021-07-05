@@ -24,12 +24,23 @@ public class Service {
     @Column(updatable = false)
     private Date createdAt;
     private Date updatedAt;
+    
+    private String img;
 
     //RelationShips
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creator_id")
     private User creator;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+    
+    @OneToMany(mappedBy = "service",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    List<Review> reviews;
 
     public Service() {
     }
@@ -65,8 +76,34 @@ public class Service {
     public void setPrice(Double price) {
         this.price = price;
     }
+    
+    
 
-    public String getRating() {
+    public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	public String getRating() {
         return rating;
     }
 

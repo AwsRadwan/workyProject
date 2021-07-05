@@ -1,7 +1,11 @@
 package com.example.workyproject.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
+import com.example.workyproject.models.Category;
 import com.example.workyproject.repositories.CategoryRepo;
 import com.example.workyproject.repositories.ReviewRepo;
 import com.example.workyproject.repositories.RoleRepo;
@@ -24,6 +28,24 @@ public class CategoryService {
 		this.userrepo = userrepo;
 		this.reviewRepo = reviewRepo;
 		this.roleRepo = roleRepo;
+	}
+	
+	public List<Category> getAllCategories(){
+		return this.categoryRepo.findAll();
+	}
+	
+	public Category getCateById(Long id) {
+		Optional<Category> c = categoryRepo.findById(id);
+    	
+    	if(c.isPresent()) {
+            return c.get();
+    	} else {
+    	    return null;
+    	}
+	}
+	
+	public void createCate(Category cate) {
+		categoryRepo.save(cate);
 	}
 	
 	
