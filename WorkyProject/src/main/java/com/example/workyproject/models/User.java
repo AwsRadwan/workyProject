@@ -17,10 +17,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //Attributes
-    @NotNull
+//    @NotNull
     @Size(min = 3, message = "First name should be at least 3 characters long")
     private String firstName;
-    @NotNull
+    //    @NotNull
     @Size(min = 3, message = "Last name should be at least 3 characters long")
     private String lastName;
     @Email
@@ -28,14 +28,14 @@ public class User {
     @Column(unique = true)
     private String email;
     @Column(nullable = false, updatable = false)
-    @Size(min = 8, message = "password should be at least 8 characters in length")
+    @Size(min = 8, message = "Password should be at least 8 characters long")
     private String password;
     @Transient
     @NotNull
     private String passwordConfirmation;
-    @NotNull
+    //    @NotNull
     private String city;
-    @NotNull
+    //    @NotNull
     private String phoneNumber;
     private int type;
     @Column(updatable = false)
@@ -43,6 +43,7 @@ public class User {
     private Date updatedAt;
 
     //RelationShips
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     Category category;
@@ -52,7 +53,7 @@ public class User {
             cascade = CascadeType.ALL)
     List<Service> services;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -60,8 +61,7 @@ public class User {
     )
     private List<Role> roles;
 
-    //Relationships goes here
-
+    //Getters and setters
 
     public List<Role> getRoles() {
         return roles;
@@ -179,6 +179,7 @@ public class User {
     }
 
     //Methods
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = new Date();

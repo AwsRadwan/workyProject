@@ -20,7 +20,6 @@ public class Review {
     private Date updatedAt;
 
     //RelationShips
-    //Relationships goes here
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
@@ -32,6 +31,8 @@ public class Review {
 
     public Review() {
     }
+
+    //Getters and Setters
 
     public Long getId() {
         return id;
@@ -82,6 +83,7 @@ public class Review {
     }
 
     //Methods
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = new Date();
