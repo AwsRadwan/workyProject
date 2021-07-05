@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "reviews")
-public class UserService {
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,6 @@ public class UserService {
     private Date updatedAt;
 
     //RelationShips
-    //Relationships goes here
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
@@ -30,8 +29,10 @@ public class UserService {
     @JoinColumn(name = "service_id")
     private Service service;
 
-    public UserService() {
+    public Review() {
     }
+
+    //Getters and Setters
 
     public Long getId() {
         return id;
@@ -48,6 +49,8 @@ public class UserService {
     public void setText(String text) {
         this.text = text;
     }
+    
+    
 
     public Date getCreatedAt() {
         return createdAt;
@@ -82,6 +85,7 @@ public class UserService {
     }
 
     //Methods
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = new Date();
