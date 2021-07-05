@@ -40,27 +40,32 @@
                     <li>
                         <!--language code start here-->
                         <c:if test="${ userid != null}">
-                            <form method="post" enctype="multipart/form-data" id="language">
-                                <div class="btn-group">
-                                    <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-                                        <span class="text"><i class="la la-language"></i>Profile</span> <i
-                                            class="la la-caret-down"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="javascript:;"><img src="images/profile.jpg" alt="english"
-                                                                        title="english"/> Dashboard</a></li>
-                                        <li><a href="javascript:;"><img src="images/profile.jpg" alt="english"
-                                                                        title="english"/> My Service</a></li>
-                                        <li><a href="javascript:;"><img src="images/profile.jpg" alt="english"
-                                                                        title="english"/> Reviews</a></li>
-                                    </ul>
-                                </div>
-                            </form>
-                        </c:if>
-                        <!--language code end here-->
+                        <form method="post" enctype="multipart/form-data" id="language">
+                            <div class="btn-group">
+                                <button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                    <span class="text"><i class="la la-language"></i>Profile</span> <i
+                                        class="la la-caret-down"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="javascript:;"><img src="images/profile.jpg" alt="english"
+                                                                    title="english"/> Dashboard</a></li>
+                                    <li><a href="javascript:;"><img src="images/profile.jpg" alt="english"
+                                                                    title="english"/> My Service</a></li>
+                                    <li><a href="javascript:;"><img src="images/profile.jpg" alt="english"
+                                                                    title="english"/> Reviews</a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    <li><a href="/logout"><i class="la la-plus-square"></i> <span>Logout</span></a></li>
+                    </c:if>
+                    <!--language code end here-->
                     </li>
-                    <li><a href="/login"><i class="la la-plus-square"></i> <span>Login</span></a></li>
-                    <li><a href="/registration"><i class="la la-key"></i> <span>Register</span></a></li>
+                    <c:if test="${userid == null}">
+                        <li><a href="/login"><i class="la la-plus-square"></i> <span>Login</span></a></li>
+                        <li><a href="/registration"><i class="la la-key"></i> <span>Register</span></a></li>
+                    </c:if>
+
+
                 </ul>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">
@@ -68,28 +73,27 @@
                     <ul class="list-inline">
                         <li><a href="/">Home</a>
                             <!-- <div class="dropdown-menu">
-                                <div class="dropdown-inner">
-                                    <ul class="list-unstyled">
-                                        <li><a href="index.html">Homepage</a></li>
-                                    </ul>
-                                </div>
+                            <div class="dropdown-inner">
+                            <ul class="list-unstyled">
+                            <li><a href="index.html">Homepage</a></li>
+                            </ul>
+                            </div>
                             </div> -->
                         </li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/all_services">All Services</a>
                             <!-- <div class="dropdown-menu">
-                                <div class="dropdown-inner">
-                                    <ul class="list-unstyled">
-                                        <li><a href="blog.html">Our Blog</a></li>
-                                        <li><a href="blogdetail.html">Blog Detail</a></li>
-                                    </ul>
-                                </div>
+                            <div class="dropdown-inner">
+                            <ul class="list-unstyled">
+                            <li><a href="blog.html">Our Blog</a></li>
+                            <li><a href="blogdetail.html">Blog Detail</a></li>
+                            </ul>
+                            </div>
                             </div> -->
                         </li>
                         <!-- <li><a href="contactus.html">Contact</a></li> -->
-                        <c:if test="${session != null}">
+                        <c:if test="${userid != null}">
                             <li><a href="/profile">Dashboard</a>
-
                                 <!-- <div class="dropdown-menu">
                                     <div class="dropdown-inner">
                                         <ul class="list-unstyled">
@@ -127,17 +131,17 @@
                 <form class="form-horizontal category" method="post" action="/selectCate">
                     <div class="row">
                         <!-- <div class="col-sm-3 paddright">
-                            <div class="form-group">
-                                <select class="selectpicker form-control bs-select-hidden" name="location">
-                                    <option value="1">Select City</option>
-                                    <option value="0">Ludhiana</option>
-                                    <option value="0">Jalandhar</option>
-                                    <option value="0">Moga</option>
-                                    <option value="0">Ambala</option>
-                                    <option value="0">Amritsar</option>
-                                    <option value="0">Delhi</option>
-                                </select>
-                            </div>
+                        <div class="form-group">
+                        <select class="selectpicker form-control bs-select-hidden" name="location">
+                        <option value="1">Select City</option>
+                        <option value="0">Ludhiana</option>
+                        <option value="0">Jalandhar</option>
+                        <option value="0">Moga</option>
+                        <option value="0">Ambala</option>
+                        <option value="0">Amritsar</option>
+                        <option value="0">Delhi</option>
+                        </select>
+                        </div>
                         </div> -->
                         <div class="col-sm-3 paddright">
                             <div class="form-group">

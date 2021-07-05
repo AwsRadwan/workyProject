@@ -34,7 +34,9 @@ public class MainController {
     }
 
     @RequestMapping("/")
-    public String mainPage(HttpSession session, Model model) {
+    public String mainPage(HttpSession session, Principal principal, Model model) {
+        if (principal != null && principal.getName() != null)
+            session.setAttribute("userid", principal.getName());
         model.addAttribute("categories", categoryService.getAllCategories());
         return "home.jsp";
     }
