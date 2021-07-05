@@ -59,7 +59,7 @@
                         <!--language code end here-->
                     </li>
                     <li><a href="/login"><i class="la la-plus-square"></i> <span>Login</span></a></li>
-                    <li><a href="/register"><i class="la la-key"></i> <span>Register</span></a></li>
+                    <li><a href="/registration"><i class="la la-key"></i> <span>Register</span></a></li>
                 </ul>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">
@@ -113,9 +113,11 @@
 <!--top end here -->
 
 <!-- header start here-->
+
 <header>
     <div class="container">
         <div class="row">
+
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div id="logo">
                     <a href="/"><img class="img-fluid logochange" src="images/logo.png" alt="logo" title="logo"/></a>
@@ -125,19 +127,7 @@
             <div class="col-md-7 col-sm-7 col-xs-12">
                 <form class="form-horizontal category" method="post" action="/selectCate">
                     <div class="row">
-                        <!-- <div class="col-sm-3 paddright">
-                            <div class="form-group">
-                                <select class="selectpicker form-control bs-select-hidden" name="location">
-                                    <option value="1">Select City</option>
-                                    <option value="0">Ludhiana</option>
-                                    <option value="0">Jalandhar</option>
-                                    <option value="0">Moga</option>
-                                    <option value="0">Ambala</option>
-                                    <option value="0">Amritsar</option>
-                                    <option value="0">Delhi</option>
-                                </select>
-                            </div>
-                        </div> -->
+
                         <div class="col-sm-3 paddright">
                             <div class="form-group">
                                 <select class="selectpicker form-control bs-select-hidden" name="category" required>
@@ -145,17 +135,6 @@
                                     <c:forEach items="${categories}" var="c">
                                         <option value="${c.id}"><c:out value="${c.name}"></c:out></option>
                                     </c:forEach>
-                                    <!-- <option value="0">Mobiles</option> -->
-                                    <!-- <option value="0">Electonics</option>
-                                    <option value="0">Real Estate</option>
-                                    <option value="0">Fashion</option>
-                                    <option value="0">Furniture</option>
-                                    <option value="0">Jobs</option>
-                                    <option value="0">Services</option>
-                                    <option value="0">Pets</option>
-                                    <option value="0">Education</option>
-                                    <option value="0">Matrimony</option>
-                                    <option value="0">Note and Coins</option> -->
                                 </select>
                             </div>
                         </div>
@@ -227,11 +206,13 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <h1>Register</h1>
 
-                    <div>
-                        <input id="tags">
-                    </div>
+                    <%--                    <div>--%>
+                    <%--                        <input id="tags">--%>
+                    <%--                    </div>--%>
+
 
                     <form:form method="POST" action="/registration" modelAttribute="user" enctype="multipart/form-data">
+
                         <div class="form-group d-flex">
                             <i class="la la-user"></i>
                             <form:input type="text" name="firstname" value="" placeholder="First Name"
@@ -241,25 +222,35 @@
                                         class="form-control m-1" path="lastName"/>
                         </div>
                         <div class="form-group">
-                            <i class="la la-user"></i>
-                            <form:input type="text" name="phonenumber" value="" placeholder="Phone Number"
-                                        id="input-username" class="form-control" path="phoneNumber"/>
-                        </div>
-                        <div class="form-group">
                             <i class="la la-envelope-o"></i>
                             <form:input type="text" name="email" value=""
                                         placeholder="Email Address" id="input-email"
                                         class="form-control" path="email"/>
                         </div>
                         <div class="form-group">
+                            <i class="la la-user"></i>
+                            <form:input type="text" name="phonenumber" value="" placeholder="Phone Number"
+                                        id="input-username" class="form-control" path="phoneNumber"/>
+                        </div>
+
+                        <div class="form-group">
+                            <i class="la la-map-pin"></i>
+                            <form:select id="citydropdown" class=" form-control "
+                                         name="citydropdown"
+                                         required="required" path="city">
+                                <option value="Select City" selected>Select City</option>
+                            </form:select>
+                        </div>
+
+                        <div class="form-group">
                             <i class="la la-unlock"></i>
-                            <form:input type="text" name="password" value=""
+                            <form:input type="password" name="password" value=""
                                         placeholder="Password" id="input-password"
                                         class="form-control" path="password"/>
                         </div>
                         <div class="form-group">
                             <i class="la la-unlock"></i>
-                            <form:input type="text" name="repeat" value=""
+                            <form:input type="password" name="repeat" value=""
                                         placeholder="Repeat Password" id="input-repeat"
                                         class="form-control" path="passwordConfirmation"/>
                         </div>
@@ -294,7 +285,7 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/all_services">Services</a></li>
                     <li><a href="/login">Login</a></li>
-                    <li><a href="/register">Register</a></li>
+                    <li><a href="/registration">Register</a></li>
                     <li><a href="add_service">Add Service</a></li>
                 </ul>
             </div>

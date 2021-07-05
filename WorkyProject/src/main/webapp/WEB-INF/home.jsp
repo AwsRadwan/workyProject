@@ -60,7 +60,7 @@
                         <!--language code end here-->
                     </li>
                     <li><a href="/login"><i class="la la-plus-square"></i> <span>Login</span></a></li>
-                    <li><a href="/register"><i class="la la-key"></i> <span>Register</span></a></li>
+                    <li><a href="/registration"><i class="la la-key"></i> <span>Register</span></a></li>
                 </ul>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">
@@ -278,7 +278,7 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/all_services">Services</a></li>
                     <li><a href="/login">Login</a></li>
-                    <li><a href="/register">Register</a></li>
+                    <li><a href="/registration">Register</a></li>
                     <li><a href="add_service">Add Service</a></li>
                 </ul>
             </div>
