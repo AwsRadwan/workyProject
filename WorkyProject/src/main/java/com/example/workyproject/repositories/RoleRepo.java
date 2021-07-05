@@ -11,4 +11,6 @@ import com.example.workyproject.models.Role;
 public interface RoleRepo extends CrudRepository<Role, Long> {
 	List<Role> findAll();
 
+	List<Role> findByName(String name);
+
 }

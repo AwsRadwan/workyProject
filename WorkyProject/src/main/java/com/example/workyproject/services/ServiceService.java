@@ -14,6 +14,7 @@ import com.example.workyproject.repositories.UserRepo;
 
 @Service
 public class ServiceService {
+
 	private final CategoryRepo categoryRepo;
 	private final ServiceRepo serviceRepo;
 	private final UserRepo userrepo;
@@ -150,4 +151,5 @@ public class ServiceService {
 //    	}
 //	}
 //
+
 }

@@ -6,77 +6,39 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "roles")
+@Table(name="roles")
 public class Role {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
-    private String Name;
-    @Column(updatable = false)
-    private Date createdAt;
-    private Date updatedAt;
+    private String name;
 
-    //RelationShips
-    //Relationships goes here
-
+    //relationships
 
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
     public Role() {
     }
+
+    //Getters and setters
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getName() {
-        return Name;
+        return name;
     }
-
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
-
-    public Date getCreatedAt() {
-        return createdAt;
+    public List<User> getUsers() {
+        return users;
     }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    //Methods
-    @PrePersist
-    protected void onCreate() {
-        this.createdAt = new Date();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        this.updatedAt = new Date();
-    }
-
 }

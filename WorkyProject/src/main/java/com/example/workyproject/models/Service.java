@@ -45,6 +45,8 @@ public class Service {
     public Service() {
     }
 
+    //Getters and setters
+
     public Long getId() {
         return id;
     }
@@ -136,6 +138,7 @@ public class Service {
     }
 
     //Methods
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = new Date();

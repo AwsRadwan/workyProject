@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
+
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -24,11 +25,14 @@ public class Category {
     private String img;
     
     //RelationShips
+
+
     //-------------------------------------------------------------------------------------
     //Categories                                                                           |
     //-------------------------------------------------------------------------------------
-    @OneToMany(mappedBy = "category" ,fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     List<User> users;
+
     //-------------------------------------------------------------------------------------
     //Reviews                                                                              |
     //-------------------------------------------------------------------------------------
@@ -38,8 +42,11 @@ public class Category {
             cascade = CascadeType.ALL)
     List<Service> services;
 
-    //Relationships goes here
 
+
+    //-------------------------------------------------------------------------------------
+    //Getters and setters                                                                 |
+    //-------------------------------------------------------------------------------------
 
     public Category() {
     }
@@ -102,7 +109,9 @@ public class Category {
         this.users = users;
     }
 
-    //Methods
+    //-------------------------------------------------------------------------------------
+    //Methods                                                                             |
+    //-------------------------------------------------------------------------------------
     @PrePersist
     protected void onCreate() {
         this.createdAt = new Date();
