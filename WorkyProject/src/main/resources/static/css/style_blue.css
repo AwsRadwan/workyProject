@@ -294,10 +294,10 @@ header .btn-primary i{
 .search .btn {
     position: absolute;
     background:#1DA1F3;
-    top: 0;
-    right: 15px;
-	border-radius:0 40px 40px 0;
-	padding: 9px 12px 5px;
+	top: 2px;
+	right: 17px;
+	border-radius: 0 40px 40px 0;
+	padding: 10px 12px 5px;
 }
 .search .btn i {
     color: #000;
@@ -541,7 +541,7 @@ footer .powered p span{
 	border:1px solid #E5E5E5;
 	padding: 8px 28px 8px 16px;
 	color:#BDBDBD !important;
-	box-shadow:0 !important;
+	box-shadow: 0 !important;
 	background:transparent;
 }
 .sort .price{
