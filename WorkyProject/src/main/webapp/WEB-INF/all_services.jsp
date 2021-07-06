@@ -11,23 +11,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>All Ads</title>
 <!-- Bootstrap stylesheet -->
-<link href="bootstrap4/css/bootstrap.min.css" rel="stylesheet">
+<link href="/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
 <!-- font -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet"> 
 <!-- stylesheet -->
-<link href="css/style.css" rel="stylesheet" type="text/css"/>
-<link href="css/style_orange.css" title="style_orange" rel="alternate stylesheet" type="text/css"/>
-<link href="css/style_blue.css" title="style_blue" rel="alternate stylesheet" type="text/css"/>
-<link href="css/responsive.css" rel="stylesheet" type="text/css"/>
-<link href="css/ele-style.css" rel="stylesheet" type="text/css"/>
+<link href="/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="/css/style_orange.css" title="style_orange" rel="alternate stylesheet" type="text/css"/>
+<link href="/css/style_blue.css" title="style_blue" rel="alternate stylesheet" type="text/css"/>
+<link href="/css/responsive.css" rel="stylesheet" type="text/css"/>
+<link href="/css/ele-style.css" rel="stylesheet" type="text/css"/>
 <!-- font-awesome -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <!-- line-awesome -->
-<link href="line-awesome/css/line-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="/line-awesome/css/line-awesome.min.css" rel="stylesheet" type="text/css" />
 <!-- crousel css -->
-<link href="js/owl-carousel/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+<link href="/js/owl-carousel/owl.carousel.min.css" rel="stylesheet" type="text/css" />
 <!--bootstrap select-->
-<link href="js/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+<link href="/js/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <!--top start here -->
@@ -45,9 +45,9 @@
 									<span class="text"><i class="la la-language"></i>Profile</span> <i class="la la-caret-down"></i>
 								</button>
 								<ul class="dropdown-menu dropdown-menu-right">
-									<li><a href="javascript:;"><img src="images/profile.jpg" alt="english" title="english" /> Dashboard</a></li>
-									<li><a href="javascript:;"><img src="images/profile.jpg" alt="english" title="english" /> My Service</a></li>
-									<li><a href="javascript:;"><img src="images/profile.jpg" alt="english" title="english" /> Reviews</a></li>
+									<li><a href="javascript:;"><img src="/images/profile.jpg" alt="english" title="english" /> Dashboard</a></li>
+									<li><a href="javascript:;"><img src="/images/profile.jpg" alt="english" title="english" /> My Service</a></li>
+									<li><a href="javascript:;"><img src="/images/profile.jpg" alt="english" title="english" /> Reviews</a></li>
 								</ul>
 							</div>
 						</form>
@@ -84,7 +84,7 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-3 col-xs-12">
 				<div id="logo">
-					<a href="/"><img class="img-fluid logochange" src="images/logo.png" alt="logo" title="logo" /></a>
+					<a href="/"><img src="/images/logo.png" alt="logo" title="logo" /></a>
 				</div>
 			</div>
 				
@@ -147,7 +147,7 @@
 						<h1>Categories</h1>
 						<ul class="list-unstyled">
 							<c:forEach items="${categories}" var="c">
-								<li><a href="/selectCate/${c.id}"><img src="images/blog/${c.img}.png" class="img-fluid" alt="image" title="image"> <c:out value="${c.name}"></c:out> </a></li>
+								<li><a href="/all_services/${c.id}"><img src="/images/blog/${c.img}.png" class="img-fluid" alt="image" title="image"> <c:out value="${c.name}"></c:out> </a></li>
 							</c:forEach>
 						</ul>
 					</div>
@@ -191,7 +191,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-12 matter">
-                <img src="images/logo.png" class="img-fluid logochange" alt="logo" title="logo" />
+                <img src="images/logo.png" alt="logo" title="logo" />
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc est justo, aliquam nec tempor fermentum, commodo et libero. Quisque et rutrum arcu. Vivamus dictum tincidunt magna id euismod. Nam sollicitudin mi quis orci lobortis feugiat.</p>
 				
             </div>

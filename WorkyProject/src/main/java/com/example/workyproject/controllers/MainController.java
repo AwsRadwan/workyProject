@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import java.security.Principal;
 
 @Controller
@@ -48,17 +49,19 @@ public class MainController {
         return "all_services.jsp";
     }
 
-    @RequestMapping(value = "/selectCate", method = RequestMethod.POST)
-    public String selectThisCategory(@PathParam("category") Long id, Model model) {
-        Category c = categoryService.getCateById(id);
-        model.addAttribute("services", c.getServices());
-        return "all_services.jsp";
+    @RequestMapping(value="/selectCate", method = RequestMethod.POST)
+    public String selectThisCategory(HttpSession session, @RequestParam("category") Long id, Model model) {
+    	System.out.println(id);
+    	System.out.println("Amro");
+    	Category c = categoryService.getCateById(id);
+        return "redirect:/selectCate/"+c.getId();
     }
 
     @RequestMapping("/selectCate/{id}")
-    public String selectThisCategory1(@PathVariable("id") Long id, Model model) {
+    public String selectThisCategory1(HttpSession session, @PathVariable("id") Long id, Model model) {
         Category c = categoryService.getCateById(id);
         model.addAttribute("services", c.getServices());
+        model.addAttribute("categories", categoryService.getAllCategories());
         return "all_services.jsp";
     }
 
@@ -70,20 +73,22 @@ public class MainController {
     @RequestMapping("/aws")
     public String addC(Model model, @ModelAttribute("cate") Category cate) {
         model.addAttribute("categories", categoryService.getAllCategories());
-        return "admintest.jsp";
+        return "adminAddCate.jsp";
     }
 
     @RequestMapping(value = "/addc", method = RequestMethod.POST)
     public String addThisC(@Valid @ModelAttribute("cate") Category cate, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("categories", categoryService.getAllCategories());
-            return "admintest.jsp";
+            return "adminAddCate.jsp";
         } else {
             this.categoryService.createCate(cate);
             return "redirect:/aws";
         }
 
     }
+
+
     @RequestMapping("/add_service")
     public String addService(Model model,HttpSession session, @ModelAttribute ("service") Service service) {
     	model.addAttribute("categories", categoryService.getAllCategories());
@@ -116,5 +121,22 @@ public class MainController {
         return "serviceDetails.jsp";
     }
     
+    @RequestMapping("/deleteCategory/{id}")
+    public String deleteCategory(@PathVariable("id") Long id) {
+    	categoryService.deleteCate(categoryService.getCateById(id));
+    	return "redirect:/aws";
+    }
+    
+    
+    @RequestMapping("/about")
+    public String aboutPage(Model model, HttpSession session) {
+    	int x = serviceService.getAllServices().size();
+    	int y = userService.getAllUsers().size();
+    	model.addAttribute("usersNum", y);
+    	model.addAttribute("servicesNum", x);
+    	model.addAttribute("categories", categoryService.getAllCategories());
+    	return "about.jsp";
+    }
+
 
 }

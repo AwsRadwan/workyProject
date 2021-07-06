@@ -123,7 +123,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div id="logo">
-                    <a href="/"><img class="img-fluid logochange" src="images/logo.png" alt="logo" title="logo"/></a>
+                    <a href="/"><img src="images/logo.png" alt="logo" title="logo" /></a>
                 </div>
             </div>
 
@@ -150,17 +150,7 @@
                                     <c:forEach items="${categories}" var="c">
                                         <option value="${c.id}"><c:out value="${c.name}"></c:out></option>
                                     </c:forEach>
-                                    <!-- <option value="0">Mobiles</option> -->
-                                    <!-- <option value="0">Electonics</option>
-                                    <option value="0">Real Estate</option>
-                                    <option value="0">Fashion</option>
-                                    <option value="0">Furniture</option>
-                                    <option value="0">Jobs</option>
-                                    <option value="0">Services</option>
-                                    <option value="0">Pets</option>
-                                    <option value="0">Education</option>
-                                    <option value="0">Matrimony</option>
-                                    <option value="0">Note and Coins</option> -->
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 </select>
                             </div>
                         </div>
@@ -269,7 +259,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-12 matter">
-                <img src="images/logo.png" class="img-fluid logochange" alt="logo" title="logo"/>
+                <img src="images/logo.png" alt="logo" title="logo"/>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc est justo, aliquam nec tempor
                     fermentum, commodo et libero. Quisque et rutrum arcu. Vivamus dictum tincidunt magna id euismod. Nam
                     sollicitudin mi quis orci lobortis feugiat.</p>

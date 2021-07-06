@@ -7,6 +7,9 @@ import com.example.workyproject.repositories.RoleRepo;
 import com.example.workyproject.repositories.ServiceRepo;
 import com.example.workyproject.repositories.UserRepo;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
@@ -52,10 +55,17 @@ public class UserService {
         return userrepo.findByEmail(username);
     }
     
+
 	public com.example.workyproject.models.User findUserById(Long id) {
         return userrepo.findById(id).orElse(null); 
-
 	}
+
+    // 4 // get All Users
+    public List<User> getAllUsers(){
+    	return userrepo.findAll();
+    }
+
+
 	
     public void updateUser(User s) {
         userrepo.save(s);

@@ -48,6 +48,10 @@ public class CategoryService {
 		categoryRepo.save(cate);
 	}
 	
+	public void deleteCate(Category c) {
+		categoryRepo.delete(c);
+	}
+	
 	
 
 }
