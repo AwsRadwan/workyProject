@@ -1,6 +1,8 @@
 package com.example.workyproject.controllers;
 
+import com.example.workyproject.models.Category;
 import com.example.workyproject.models.User;
+import com.example.workyproject.services.CategoryService;
 import com.example.workyproject.services.UserService;
 import com.example.workyproject.validations.UserValidator;
 import org.springframework.stereotype.Controller;
@@ -20,10 +22,12 @@ public class UserController {
 
     private UserService userService;
     private UserValidator userValidator;
+    private CategoryService categoryService;
 
-    public UserController(UserService userService, UserValidator userValidator) {
+    public UserController(UserService userService, UserValidator userValidator, CategoryService categoryService) {
         this.userService = userService;
         this.userValidator = userValidator;
+        this.categoryService = categoryService;
     }
 
     @RequestMapping("/registration")
@@ -39,8 +43,8 @@ public class UserController {
         if (result.hasErrors()) {
             return "registrationPage.jsp";
         }
-        userService.saveWithUserRole(user);   // Normal User
-//        userService.saveUserWithAdminRole(user); // Admin User
+//        userService.saveWithUserRole(user);   // Normal User
+        userService.saveUserWithAdminRole(user); // Admin User
         return "redirect:/login";
     }
 
@@ -71,10 +75,11 @@ public class UserController {
 
     // NEW
     @RequestMapping("/admin")
-    public String adminPage(Principal principal, Model model) {
+    public String adminPage(Principal principal, Model model, @ModelAttribute("cate") Category cate) {
         String username = principal.getName();
         model.addAttribute("currentUser", userService.findByUsername(username));
-        return "adminPage.jsp";
+        model.addAttribute("categories", categoryService.getAllCategories());
+        return "adminAddCate.jsp";
     }
 
 

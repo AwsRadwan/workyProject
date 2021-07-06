@@ -2,24 +2,29 @@ package com.example.workyproject.controllers;
 
 import com.example.workyproject.models.Service;
 import com.example.workyproject.models.User;
+import com.example.workyproject.services.ServiceService;
 import com.example.workyproject.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
+import java.io.IOException;
+import java.security.Principal;
 
 @Controller
 public class DashboardController {
 
     private final UserService userService;
+    private final ServiceService serviceService;
 
-    public DashboardController(UserService userService) {
+    public DashboardController(UserService userService, ServiceService serviceService) {
         this.userService = userService;
+        this.serviceService = serviceService;
     }
 
     @RequestMapping("/profile")
@@ -76,6 +81,35 @@ public class DashboardController {
             return "redirect/dashboardsettings";
         }
 
+    }
+
+    @RequestMapping(value = "/edit_service/{id}")
+    public String rendereditService(@ModelAttribute("service") Service service, @PathVariable("id") Long id,
+                                    Model model, Principal principal) {
+        model.addAttribute("sevicedata", serviceService.getSerById(id));
+        return "/editService.jsp";
+    }
+
+
+    @RequestMapping(value = "/edit_service/{id}", method = RequestMethod.POST)
+    public String editservice(@Valid @ModelAttribute("service") Service service, BindingResult result,
+                              Principal principal,
+                              Model model, @PathVariable("id") Long id) {
+        model.addAttribute("sevicedata", serviceService.getSerById(id));
+        String username = principal.getName();
+        User user = userService.findByUsername(username);
+        if (result.hasErrors()) {
+            return "/editService.jsp";
+        } else {
+            serviceService.createService(service);
+            return "redirect:/service/new";
+        }
+    }
+
+    @GetMapping(value = "/delete_service/{id}")
+    public String deleteService(@PathVariable("id") Long id) {
+        serviceService.deleteService(id);
+        return "redirect:/profile";
     }
 
 

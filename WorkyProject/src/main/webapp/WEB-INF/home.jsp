@@ -123,26 +123,13 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div id="logo">
-                    <a href="/"><img src="images/logo.png" alt="logo" title="logo" /></a>
+                    <a href="/"><img src="images/logo.png" alt="logo" title="logo"/></a>
                 </div>
             </div>
 
             <div class="col-md-7 col-sm-7 col-xs-12">
                 <form class="form-horizontal category" method="post" action="/selectCate">
                     <div class="row">
-                        <!-- <div class="col-sm-3 paddright">
-                        <div class="form-group">
-                        <select class="selectpicker form-control bs-select-hidden" name="location">
-                        <option value="1">Select City</option>
-                        <option value="0">Ludhiana</option>
-                        <option value="0">Jalandhar</option>
-                        <option value="0">Moga</option>
-                        <option value="0">Ambala</option>
-                        <option value="0">Amritsar</option>
-                        <option value="0">Delhi</option>
-                        </select>
-                        </div>
-                        </div> -->
                         <div class="col-sm-3 paddright">
                             <div class="form-group">
                                 <select class="selectpicker form-control bs-select-hidden" name="category" required>
@@ -260,9 +247,11 @@
         <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-12 matter">
                 <img src="images/logo.png" alt="logo" title="logo"/>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc est justo, aliquam nec tempor
-                    fermentum, commodo et libero. Quisque et rutrum arcu. Vivamus dictum tincidunt magna id euismod. Nam
-                    sollicitudin mi quis orci lobortis feugiat.</p>
+                <p>There is no replacement of hard work for prosperity. No matter how talented you are, you’ve
+                    to work hard to excel in life. It’s not about competition only, it’s also about
+                    determination and consistency. We need to work hard for prosperity because success demands
+                    dedication. No matter which profession you choose which career you aim at, you’ve to work
+                    hard to perform the best and make it to the top.</p>
 
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 info">

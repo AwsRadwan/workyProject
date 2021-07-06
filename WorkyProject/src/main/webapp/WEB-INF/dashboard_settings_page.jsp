@@ -127,57 +127,10 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div id="logo">
-                    <a href="/"><img class="img-fluid logochange" src="images/logo.png" alt="logo" title="logo"/></a>
+                    <a href="/"><img src="images/logo.png" alt="logo" title="logo"/></a>
                 </div>
             </div>
-
             <div class="col-md-7 col-sm-7 col-xs-12">
-                <form class="form-horizontal category" method="post" action="/selectCate">
-                    <div class="row">
-                        <!-- <div class="col-sm-3 paddright">
-                        <div class="form-group">
-                        <select class="selectpicker form-control bs-select-hidden" name="location">
-                        <option value="1">Select City</option>
-                        <option value="0">Ludhiana</option>
-                        <option value="0">Jalandhar</option>
-                        <option value="0">Moga</option>
-                        <option value="0">Ambala</option>
-                        <option value="0">Amritsar</option>
-                        <option value="0">Delhi</option>
-                        </select>
-                        </div>
-                        </div> -->
-                        <div class="col-sm-3 paddright">
-                            <div class="form-group">
-                                <select class="selectpicker form-control bs-select-hidden" name="category" required>
-                                    <option value="Select Category" selected>Select Category</option>
-                                    <c:forEach items="${categories}" var="c">
-                                        <option value="${c.id}"><c:out value="${c.name}"></c:out></option>
-                                    </c:forEach>
-                                    <!-- <option value="0">Mobiles</option> -->
-                                    <!-- <option value="0">Electonics</option>
-                                    <option value="0">Real Estate</option>
-                                    <option value="0">Fashion</option>
-                                    <option value="0">Furniture</option>
-                                    <option value="0">Jobs</option>
-                                    <option value="0">Services</option>
-                                    <option value="0">Pets</option>
-                                    <option value="0">Education</option>
-                                    <option value="0">Matrimony</option>
-                                    <option value="0">Note and Coins</option> -->
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 search">
-                            <div class="form-group">
-                                <input name="searsh" value="" class="form-control" placeholder="Enter Keyword"
-                                       type="text">
-                                <button type="submit" value="submit" class="btn"><i class="icon_search"
-                                                                                    aria-hidden="true"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12 center">
                 <button class="btn-primary btn-block" type="button" onclick="location.href='/add_service'"><i
@@ -198,7 +151,8 @@
                 <div class="dashboard">
                     <div class="profile">
                         <div class="col-sm-3 col-xs-12">
-                            <img class="img-fluid" src="images/dashboard/dp.png" alt="image" title="image">
+                            <img id="pfp" class="img-fluid" src="images/dashboard/dp.png" height="170" width="170"
+                                 alt="image" title="image">
                         </div>
                         <div class="col-sm-9 col-xs-12 padd0">
                             <h4>${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}</h4>
@@ -245,7 +199,6 @@
                                                            class="form-horizontal"
                                                            method="post"
                                                            action="/dbupdatecontact">
-
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
                                                             <form:input
@@ -265,8 +218,6 @@
                                                                     type="text"/>
                                                         </div>
                                                     </div>
-
-
                                                     <div class="form-group">
                                                         <div class="col-sm-12">
                                                             <form:select
@@ -279,8 +230,6 @@
                                                             </form:select>
                                                         </div>
                                                     </div>
-
-
                                                     <div class="buttons">
                                                         <input class="btn btn-primary" value="Save" type="submit">
                                                     </div>
@@ -291,6 +240,31 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse6"><h4
+                                            class="panel-title">Profile Picture <i class="fa fa-angle-right"
+                                                                                   aria-hidden="true"></i>
+                                    </h4></a>
+                                </div>
+                                <div id="collapse6" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" method="post">
+                                            <label>Add Photos*</label>
+                                            <input id="uploadImage" name="file" type="file" path="cover"
+                                                   onchange="readURL(this)">
+                                            <div class="buttons">
+                                                <input class="btn btn-primary" value="Submit" type="submit">
+                                            </div>
+                                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><h4
@@ -409,6 +383,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse6"><h4
@@ -416,7 +391,7 @@
                                                                                   aria-hidden="true"></i>
                                     </h4></a>
                                 </div>
-                                <div id="collapse6" class="panel-collapse collapse">
+                                <div id="collapse7" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <form class="form-horizontal" method="post">
                                             <div class="buttons text-center">
@@ -480,7 +455,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12 text-center">
-                    <p>© 2017 <span>Classifiedspot</span>. All rights reserved. Theme by <span>TMD Studio</span></p>
+                    <p>© 2021 <span>Classifiedspot</span>. All rights reserved. Theme by <span>TMD Studio</span></p>
                 </div>
             </div>
         </div>
@@ -505,6 +480,22 @@
 <link rel="stylesheet" href="js/preetycheble/prettyCheckable.css"/>
 <script src="js/switcher.js"></script>
 
+<script>
+    function readURL(input) {
+        var url = input.value;
+        var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+        if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#pfp').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            console("noimage")
+        }
+    }
+</script>
 
 </body>
 </html>

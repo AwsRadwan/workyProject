@@ -2601,6 +2601,7 @@ footer .powered p span {
     height: 120px;
     text-align: center;
     padding: 40px;
+    background-size: cover;
 }
 
 .add .photo ul li i {

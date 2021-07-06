@@ -8,39 +8,27 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ads Single View</title>
-    <!-- Bootstrap stylesheet -->
+    <title>Add Service</title>
+
     <link href="/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
-    <!-- font -->
+    <link rel="stylesheet" href="/js/preetycheble/prettyCheckable.css"/>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet">
-    <!-- stylesheet -->
+
     <link href="/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="/css/style_orange.css" title="style_orange" rel="alternate stylesheet" type="text/css"/>
     <link href="/css/style_blue.css" title="style_blue" rel="alternate stylesheet" type="text/css"/>
     <link href="/css/responsive.css" rel="stylesheet" type="text/css"/>
     <link href="/css/ele-style.css" rel="stylesheet" type="text/css"/>
-    <!-- font-awesome -->
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <!-- line-awesome -->
-    <link href="/line-awesome/css/line-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <!-- crousel css -->
+
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="line-awesome/css/line-awesome.min.css" rel="stylesheet" type="text/css"/>
+
     <link href="/js/owl-carousel/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
-    <!--bootstrap select-->
+
     <link href="/js/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css"/>
-    <!-- jquery -->
-    <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <!-- bootstrap js -->
-    <script src="/js/popper.min.js" type="text/javascript"></script>
-    <script src="/bootstrap4/js/bootstrap.min.js" type="text/javascript"></script>
-    <!--bootstrap select-->
-    <script src="/js/dist/js/bootstrap-select.js"></script>
-    <!-- owlcarousel js -->
-    <script src="/js/holder.min.js" type="text/javascript"></script>
-    <script src="/js/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-    <!--internal js-->
-    <script src="/js/owlinternal.js"></script>
-    <script src="/js/internal.js"></script>
-    <script src="/js/switcher.js"></script>
+
+    <script src="/js/imageupload.js"></script>
 </head>
 <body>
 <!--top start here -->
@@ -59,11 +47,11 @@
                                             class="la la-caret-down"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="javascript:;"><img src="/images/profile.jpg" alt="english"
+                                        <li><a href="javascript:;"><img src="images/profile.jpg" alt="english"
                                                                         title="english"/> Dashboard</a></li>
-                                        <li><a href="javascript:;"><img src="/images/profile.jpg" alt="english"
+                                        <li><a href="javascript:;"><img src="images/profile.jpg" alt="english"
                                                                         title="english"/> My Service</a></li>
-                                        <li><a href="javascript:;"><img src="/images/profile.jpg" alt="english"
+                                        <li><a href="javascript:;"><img src="images/profile.jpg" alt="english"
                                                                         title="english"/> Reviews</a></li>
                                     </ul>
                                 </div>
@@ -131,7 +119,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div id="logo">
-                    <a href="/"><img src="images/logo.png" alt="logo" title="logo" /></a>
+                    <a href="/"><img src="images/logo.png" alt="logo" title="logo"/></a>
                 </div>
             </div>
 
@@ -183,143 +171,74 @@
 </header>
 <!-- header end here -->
 
-<!-- breadcrumb end here -->
-<div class="bread-crumb">
-    <div class="container">
 
-    </div>
-</div>
-<!-- breadcrumb end here -->
-
-
-<!-- ad-single start here -->
 <div class="commontop">
     <div class="container">
         <div class="row">
-            <div class="col-sm-9 col-xs-12">
-                <h2 class="title-singleads">Category : ${service.category.name} </h2>
-                <h4 class="title">Title : ${service.name} </h4>
-                <div class="tabheading">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="row">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation"><a class="active" href="#photos" aria-controls="home" role="tab"
-                                                           data-toggle="tab">Photos</a></li>
-                                <li role="presentation"><a class="" href="#adsmap" aria-controls="profile" role="tab"
-                                                           data-toggle="tab">Map</a></li>
-                            </ul>
-                        </div>
+            <div class="col-sm-12 col-xs-12">
+                <div class="add">
+                    <div class="addtop">
+                        <h3>Create your service</h3>
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <div class="row pull-right">
-                            <div class="time-location hidden-xs">
-                            </div>
-                            <div class="advertise-id">
-
+                    <form:form action="/edit_service/${sevicedata.id}" method="post" enctype="multipart/form-data"
+                               class="form-horizontal addform" modelAttribute="service">
+                        <div class="form-group">
+                            <div class="col-sm-12 col-xs-12">
+                                <form:label path="name">Add Name*</form:label>
+                                <form:input path="name" id="input-title" class="form-control" type="text"
+                                            value="${sevicedata.name}"/>
                             </div>
                         </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active show margin-map" id="photos">
-
-
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100" src="/getStudentPhoto/${id}" alt="First slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="/getStudentPhoto/${id}" alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="/getStudentPhoto/${id}" alt="Third slide">
+                        <div class="form-group">
+                            <div class="col-sm-12 col-xs-12">
+                                <form:label path="category">Select Category* </form:label><br>
+                                <form:select class="form-control bs-select" path="category">
+                                    <form:option value="category" selected="true">Select Category</form:option>
+                                    <c:forEach items="${categories}" var="c">
+                                        <form:option value="${c.id}"> <c:out value="${c.name}"></c:out> </form:option>
+                                    </c:forEach>
+                                </form:select>
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="vehicle">
+                                <div class="form-group">
+                                    <div class="col-sm-5 col-xs-12">
+                                        <form:label path="price">Price*</form:label>
+                                        <form:input path="price" value="${sevicedata.price}" id="input-price"
+                                                    class="form-control"
+                                                    type="number"/>
+                                    </div>
                                 </div>
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                               data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                               data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12 col-xs-12">
+                                <form:label path="description">Description*</form:label>
+                                <form:textarea path="description" id="input-enquiry"
+                                               class="form-control" placeholder="${sevicedata.description}"
+                                               value="${sevicedata.description}"></form:textarea>
+                            </div>
                         </div>
 
-                    </div>
-                    <div role="tabpanel" class="tab-pane margin-map" id="adsmap">
-                        <div class="map">
-                            <iframe src="https://maps.google.com/maps?q=${service.creator.city}&t=k&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+                        <div class="buttons">
+                            <input class="btn btn-primary" value="Submit" type="submit">
                         </div>
-                    </div>
-                </div>
-                <div class="details-single">
-                    <div class="clearfix"></div>
-                    <div class="title-detail">Description</div>
-                    <p><c:out value="${userDescription}"/></p>
-                </div>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-            </div>
-            <div class="col-sm-3 col-xs-12">
-                <div class="rightside">
-                    <p class="price">Price : $<c:out value="${userPrice}"/></p>
-                    <div class="profile text-center">
-                        <h2>By : <a href=""><c:out value="${userName}"/></a></h2>
-                    </div>
-                    <div class="phone">
-                        <i class="la la-phone"></i> <c:out value="${userNumber}"/>
-                    </div>
-                    <h1>Rating : ${service.rating} </h1>
-                    <fieldset class="rating">
-                        <input type="radio" id="star5" name="rating" value="5"/><label id="star5label" class="full"
-                                                                                       for="star5"
-                                                                                       title="Awesome - 5 stars"></label>
-                        <input type="radio" id="star4half" name="rating" value="4 and a half"/><label
-                            id="star4halflabel" class="half"
-                            for="star4half"
-                            title="Pretty good - 4.5 stars"></label>
-                        <input type="radio" id="star4" name="rating" value="4"/><label id="star4label" class="full"
-                                                                                       for="star4"
-                                                                                       title="Pretty good - 4 stars"></label>
-                        <input type="radio" id="star3half" name="rating" value="3 and a half"/><label
-                            id="star3halflabel" class="half"
-                            for="star3half"
-                            title="Meh - 3.5 stars"></label>
-                        <input type="radio" id="star3" name="rating" value="3"/><label id="star3label" class="full"
-                                                                                       for="star3"
-                                                                                       title="Meh - 3 stars"></label>
-                        <input type="radio" id="star2half" name="rating" value="2 and a half"/><label
-                            id="star2halflabel"
-                            class="half"
-                            for="star2half"
-                            title="Kinda bad - 2.5 stars"></label>
-                        <input type="radio" id="star2" name="rating" value="2"/><label class="full" for="star2"
-                                                                                       title="Kinda bad - 2 stars"></label>
-                        <input type="radio" id="star1half" name="rating" value="1 and a half"/><label class="half"
-                                                                                                      for="star1half"
-                                                                                                      title="Meh - 1.5 stars"></label>
-                        <input type="radio" id="star1" name="rating" value="1"/><label class="full" for="star1"
-                                                                                       title="Sucks big time - 1 star"></label>
-                        <input type="radio" id="starhalf" name="rating" value="half"/><label class="half" for="starhalf"
-                                                                                             title="Sucks big time - 0.5 stars"></label>
-                    </fieldset>
+                    </form:form>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
-<!-- ad-single end here -->
 
-<!-- footer start here -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-12 matter">
-                <img src="/images/logo.png" class="img-fluid logochange" alt="logo" title="logo"/>
+                <img src="images/logo.png" class="img-fluid logochange" alt="logo" title="logo"/>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc est justo, aliquam nec tempor
                     fermentum, commodo et libero. Quisque et rutrum arcu. Vivamus dictum tincidunt magna id euismod. Nam
                     sollicitudin mi quis orci lobortis feugiat.</p>
@@ -363,35 +282,20 @@
         </div>
     </div>
 </footer>
-<!-- footer end here -->
 
-<script>
+<script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 
-    $(document).ready(function init() {
-        $('#starhalf,#star5,#star4half,#star4,#star3half,#star3,#star2half,#star2,#star1half,#star1').attr('disabled', true);
-        let rating = parseInt('${service.rating}');
-        if (rating === 1) {
-            $('#star1').attr('checked', true);
-        } else if (rating > 1 && rating < 2) {
-            $('#star1half').attr('checked', true);
-        } else if (rating === 2) {
-            $('#star2').attr('checked', true);
-        } else if (rating > 2 & rating < 3) {
-            $('#star2half').attr('checked', true);
-        } else if (rating === 3) {
-            $('#star3').attr('checked', true);
-        } else if (rating > 3 & rating < 4) {
-            $('#star3half').attr('checked', true);
-        } else if (rating === 4) {
-            $('#star4').attr('checked', true);
-        } else if (rating > 4 & rating < 5) {
-            $('#star4half').attr('checked', true);
-        } else if (rating === 5) {
-            $('#star5').attr('checked', true);
-        }
-    });
+<script src="/js/popper.min.js" type="text/javascript"></script>
+<script src="/bootstrap4/js/bootstrap.min.js" type="text/javascript"></script>
 
-</script>
+<script src="/js/dist/js/bootstrap-select.js"></script>
+
+<script src="/js/holder.min.js" type="text/javascript"></script>
+<script src="/js/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+<script src="/js/owlinternal.js"></script>
+<script src="/js/internal.js"></script>
+<script src="/js/preetycheble/prettyCheckable.min.js"></script>
+<script src="/js/switcher.js"></script>
 
 
 </body>
