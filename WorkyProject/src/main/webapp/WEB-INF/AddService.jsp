@@ -1,32 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>	
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page isErrorPage="true" %>
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>      
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>All Ads</title>
-<!-- Bootstrap stylesheet -->
+<title>Add Service</title>
+
 <link href="bootstrap4/css/bootstrap.min.css" rel="stylesheet">
-<!-- font -->
+<link rel="stylesheet" href="js/preetycheble/prettyCheckable.css"/>
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900" rel="stylesheet"> 
-<!-- stylesheet -->
+
 <link href="css/style.css" rel="stylesheet" type="text/css"/>
 <link href="css/style_orange.css" title="style_orange" rel="alternate stylesheet" type="text/css"/>
 <link href="css/style_blue.css" title="style_blue" rel="alternate stylesheet" type="text/css"/>
 <link href="css/responsive.css" rel="stylesheet" type="text/css"/>
 <link href="css/ele-style.css" rel="stylesheet" type="text/css"/>
-<!-- font-awesome -->
+
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<!-- line-awesome -->
+
 <link href="line-awesome/css/line-awesome.min.css" rel="stylesheet" type="text/css" />
-<!-- crousel css -->
+
 <link href="js/owl-carousel/owl.carousel.min.css" rel="stylesheet" type="text/css" />
-<!--bootstrap select-->
+
 <link href="js/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -62,13 +61,43 @@
 				<div class="topnav responsive" id="myTopnav">
 					<ul class="list-inline">
 						<li><a href="/">Home</a>
+							<!-- <div class="dropdown-menu">
+								<div class="dropdown-inner">
+									<ul class="list-unstyled">
+										<li><a href="index.html">Homepage</a></li>
+									</ul>
+								</div>
+							</div> -->
 						</li>
 						<li><a href="/about">About</a></li>
-						<li ><a href="/all_services">All Services</a>
+						<li><a href="/all_services">All Services</a>
+							<!-- <div class="dropdown-menu">
+								<div class="dropdown-inner">
+									<ul class="list-unstyled">
+										<li><a href="blog.html">Our Blog</a></li>
+										<li><a href="blogdetail.html">Blog Detail</a></li>
+									</ul>
+								</div>
+							</div> -->
+						</li>
+						<!-- <li><a href="contactus.html">Contact</a></li> -->
 						<c:if test="${session != null}">
 							<li><a href="/profile">Dashboard</a>
+						
+							<!-- <div class="dropdown-menu">
+								<div class="dropdown-inner">
+									<ul class="list-unstyled">
+										<li><a href="faq.html">FAQ</a></li>
+										<li><a href="dashboard.html">Dashboard</a></li>
+										<li><a href="price_plan.html">Pricing Plans</a></li>
+										<li><a href="all_ads.html"> All Ads</a></li>
+										<li><a href="ads_single_view.html">Ads Single View</a></li>
+									</ul>
+								</div>
+							</div> -->
 						</li>
 						</c:if>
+						<!-- <li><a href="terms_and_conditions.html">Term & Conditions</a></li> -->
 						<li><a href="javascript:void(0);" class="icons" onclick="myFunction()">&#9776;</a></li>
 					</ul>
 				</div>
@@ -91,19 +120,43 @@
 			<div class="col-md-7 col-sm-7 col-xs-12">
 				<form class="form-horizontal category" method="post" action="/selectCate">
 					<div class="row">
+						<!-- <div class="col-sm-3 paddright">
+							<div class="form-group">
+								<select class="selectpicker form-control bs-select-hidden" name="location">
+									<option value="1">Select City</option>
+									<option value="0">Ludhiana</option>
+									<option value="0">Jalandhar</option>
+									<option value="0">Moga</option>
+									<option value="0">Ambala</option>
+									<option value="0">Amritsar</option>
+									<option value="0">Delhi</option>
+								</select>
+							</div>
+						</div> -->
 						<div class="col-sm-3 paddright">
 							<div class="form-group">
 								<select class="selectpicker form-control bs-select-hidden" name="category" required>
 									<option value="Select Category" selected>Select Category</option>
-									<c:forEach items="${categories}" var="c">
+									<c:forEach items="${categories}" var="c">category
 										<option value="${c.id}"> <c:out value="${c.name}"></c:out> </option>
 									</c:forEach>
+									<!-- <option value="0">Mobiles</option> -->
+									<!-- <option value="0">Electonics</option>
+									<option value="0">Real Estate</option>
+									<option value="0">Fashion</option>
+									<option value="0">Furniture</option>
+									<option value="0">Jobs</option>
+									<option value="0">Services</option>
+									<option value="0">Pets</option>
+									<option value="0">Education</option>
+									<option value="0">Matrimony</option>
+									<option value="0">Note and Coins</option> -->
 								</select>
 							</div>
 						</div>
 						<div class="col-sm-6 search">
 							<div class="form-group">
-								<input name="s" value="" class="form-control" placeholder="Enter Keyword" type="text">
+								<input name="searsh" value="" class="form-control" placeholder="Enter Keyword" type="text">
 								<button type="submit" value="submit" class="btn"><i class="icon_search" aria-hidden="true"></i></button>
 							</div>
 						</div>
@@ -118,75 +171,76 @@
 </header>
 <!-- header end here -->
 
-<!-- breadcrumb end here -->
-<div class="bread-crumb">
-	<div class="container">
-		<div class="matter">
-			<div class="pull-left">
-				<ul class="list-inline">
-					<li><a href="/">Home</a></li>
-					<li><a href="/all_services">All Services</a></li>
-				</ul>
-			</div>
-			<div class="pull-right">
-				<h2>All Services</h2>
+
+
+
+<div class="commontop">
+	<div class="container"> 
+		<div class="row">
+			<div class="col-sm-12 col-xs-12">
+				<div class="add">
+					<div class="addtop">
+						<h3>Create your service</h3>
+					</div>
+					<form:form action="/service" method="post" enctype="multipart/form-data" class="form-horizontal addform" modelAttribute="service">
+						<div class="form-group">
+							<div class="col-sm-12 col-xs-12">
+								<form:label path="name">Add Name*</form:label>
+								<form:input path="name" id="input-title" class="form-control"  type="text"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12 col-xs-12">
+								<form:label path="category">Select Category* </form:label><br>
+								<form:select class="form-control bs-select" path="category" >
+   								   <form:option value="category" selected="true">Select Category</form:option>
+									<c:forEach items="${categories}" var="c">
+										<form:option value="${c.id}"> <c:out value="${c.name}"></c:out> </form:option>
+									</c:forEach>
+								</form:select>
+							</div>
+						</div>
+						<div  class="tab-content">
+							<div class="tab-pane active" id="vehicle">
+								<div class="form-group">
+									<div class="col-sm-5 col-xs-12">
+										<form:label path="price">Price*</form:label>
+										<form:input path="price" value="" id="input-price" class="form-control"  type="number" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12 col-xs-12">
+								<form:label path="description">Description*</form:label>
+								<form:textarea path="description" id="input-enquiry" class="form-control"></form:textarea>
+							</div>
+						</div>
+						<!-- <div class="form-group">
+							<div class="col-sm-12 col-xs-12">
+								<label>Add Photos*</label>
+								<div class="photo">
+									<ul class="list-inline">
+										<li><a href="#"><i class="la la-plus"></i></a></li>
+										<li><a href="#"><i class="la la-plus"></i></a></li>
+										<li><a href="#"><i class="la la-plus"></i></a></li>
+										<li><a href="#"><i class="la la-plus"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div> -->
+						<div class="buttons">
+							<input class="btn btn-primary" value="Submit" type="submit">
+						</div>
+					</form:form>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<!-- breadcrumb end here -->
 
 
-<!-- content start here -->
-<div class="maincategory1">
-	<div class="container"> 
-		<div class="row">
-			<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
-				<div class="left">
-					<div class="category">
-						<h1>Categories</h1>
-						<ul class="list-unstyled">
-							<c:forEach items="${categories}" var="c">
-								<li><a href="/selectCate/${c.id}"><img src="images/blog/${c.img}.png" class="img-fluid" alt="image" title="image"> <c:out value="${c.name}"></c:out> </a></li>
-							</c:forEach>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-10 col-sm-9 col-md-9 padd0 col-xs-12 catebox">
-				<div class="row">
 
-					<c:forEach items="${category.services()}" var="s">
-						<div class="product-layout product-grid col-lg-3 col-md-4 col-sm-6 col-xs-12 cols">
-							<div class="product-thumb">
-								<div class="image">
-									<a href="ads_single_view.html"><img src="images/vehicle/01.jpg" alt="image" title="image" class="img-fluid"></a>
-									<div class="onhover">$ <c:out value="${s.price}"></c:out> </div>
-								</div>
-								<div class="caption">
-									<h4><a href="/this_service/${s.id}"> <c:out value="${s.name}"></c:out> </a></h4>
-									<p class="des">Category : <c:out value="${s.category}"></c:out> </p>
-									<ul class="list-unstyled">
-										<li><i class="la la-map-marker"></i> <c:out value="${s.user.city}"></c:out> </li>
-										<li><i class="la la-clock-o"></i> <c:out value="${s.created_at}"></c:out> </li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</c:forEach>
-						</div>
-					</div>	
-					
-					<div class="text-center icon">
-						<i class="la la-spinner fa-spin"></i>
-					</div>
-			</div>
-		</div>
-	</div>
-<!-- content end here -->
-
-
-<!-- footer start here -->
 <footer>
     <div class="container">
         <div class="row">
@@ -223,27 +277,26 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-xs-12 text-center">
-					<p>Â© 2017 <span>Classifiedspot</span>. All rights reserved. Theme by <span>TMD Studio</span></p>
+					<p>© 2017 <span>Classifiedspot</span>. All rights reserved. Theme by <span>TMD Studio</span></p>
 				</div>
 			</div>
 		</div>
 	</div>
-</footer>
-<!-- footer end here -->
-		
-<!-- jquery -->
+</footer>		
+
 <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
-<!-- bootstrap js -->
+
 <script src="js/popper.min.js" type="text/javascript"></script>
 <script src="bootstrap4/js/bootstrap.min.js" type="text/javascript"></script>
-<!--bootstrap select-->
+
 <script src="js/dist/js/bootstrap-select.js"></script>
-<!-- owlcarousel js -->
+
 <script src="js/holder.min.js" type="text/javascript"></script>
 <script src="js/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-<!--internal js-->
 <script src="js/owlinternal.js"></script>
 <script src="js/internal.js"></script>
+<script src="js/preetycheble/prettyCheckable.min.js"></script>
+
 <script src="js/switcher.js"></script>
 </body>
 </html>
