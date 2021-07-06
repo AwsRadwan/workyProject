@@ -45,6 +45,18 @@ public class ServiceService {
             return null;
         }
     }
+  //return all services
+  	public List<com.example.workyproject.models.Service> allServices() {
+          return serviceRepo.findAll();
+      }
+  	//return a service by its id 
+  	public com.example.workyproject.models.Service findService(Long id) {
+          return serviceRepo.findById(id).orElse(null); 
+      }
+  	//create a new service
+  	public com.example.workyproject.models.Service createService(com.example.workyproject.models.Service ss) {
+  		return serviceRepo.save(ss);
+  	}
 
 
 }

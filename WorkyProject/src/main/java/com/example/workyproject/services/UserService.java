@@ -51,8 +51,12 @@ public class UserService {
     public User findByUsername(String username) {
         return userrepo.findByEmail(username);
     }
+    
+	public com.example.workyproject.models.User findUserById(Long id) {
+        return userrepo.findById(id).orElse(null); 
 
-
+	}
+	
     public void updateUser(User s) {
         userrepo.save(s);
     }

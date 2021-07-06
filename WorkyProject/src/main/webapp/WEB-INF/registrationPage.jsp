@@ -206,12 +206,13 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <h1>Register</h1>
 
+<<<<<<< Updated upstream
                     <%--                    <div>--%>
                     <%--                        <input id="tags">--%>
                     <%--                    </div>--%>
 
-
                     <form:form method="POST" action="/registration" modelAttribute="user" enctype="multipart/form-data">
+                    	
 
                         <div class="form-group d-flex">
                             <i class="la la-user"></i>
