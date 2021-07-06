@@ -147,7 +147,7 @@
 						<h1>Categories</h1>
 						<ul class="list-unstyled">
 							<c:forEach items="${categories}" var="c">
-								<li><a href="/all_services/${c.id}"><img src="/images/blog/${c.img}.png" class="img-fluid" alt="image" title="image"> <c:out value="${c.name}"></c:out> </a></li>
+								<li><a href="/selectCate/${c.id}"><img src="/images/blog/${c.img}.png" class="img-fluid" alt="image" title="image"> <c:out value="${c.name}"></c:out> </a></li>
 							</c:forEach>
 						</ul>
 					</div>
