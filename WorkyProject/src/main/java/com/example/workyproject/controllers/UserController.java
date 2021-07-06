@@ -56,6 +56,12 @@ public class UserController {
         return "loginPage.jsp";
     }
 
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
+
     @RequestMapping(value = {"/home"})
     public String home(HttpSession session, Principal principal, Model model) {
         String username = principal.getName();

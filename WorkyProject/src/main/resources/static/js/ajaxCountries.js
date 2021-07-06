@@ -24,12 +24,16 @@
     }
     console.log(cities)
 
-    $(function () {
-        var availableTags = cities;
-        $("#tags").autocomplete({
-            source: availableTags
-        });
-    });
+    // $(function () {
+    //     var availableTags = cities;
+    //     $("#tags").autocomplete({
+    //         source: availableTags
+    //     });
+    // });
 
+    $(document).ready(function () {
+        var dropdown2 = $('#citydropdown');
+        cities.forEach(((value, index) => dropdown2.append($('<option/>').val(value).text(value))));
+    });
 
 })();

@@ -1,12 +1,12 @@
 package com.example.workyproject.controllers;
 
 import com.example.workyproject.models.Category;
+import com.example.workyproject.models.Service;
+import com.example.workyproject.models.User;
 import com.example.workyproject.services.*;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import java.security.Principal;
 
 @Controller
@@ -34,7 +33,9 @@ public class MainController {
     }
 
     @RequestMapping("/")
-    public String mainPage(HttpSession session, Model model) {
+    public String mainPage(HttpSession session, Principal principal, Model model) {
+        if (principal != null && principal.getName() != null)
+            session.setAttribute("userid", principal.getName());
         model.addAttribute("categories", categoryService.getAllCategories());
         return "home.jsp";
     }
@@ -83,5 +84,37 @@ public class MainController {
         }
 
     }
+    @RequestMapping("/add_service")
+    public String addService(Model model,HttpSession session, @ModelAttribute ("service") Service service) {
+    	model.addAttribute("categories", categoryService.getAllCategories());
+    	return "AddService.jsp";
+    }
+    @RequestMapping("/service/new")
+	public String newService(Model model) {
+		model.addAttribute("service", new Service());
+		model.addAttribute("categories", categoryService.getAllCategories());
+		return "/home.jsp";
+	}
+    @RequestMapping(value="/service", method=RequestMethod.POST)
+	public String createService(@Valid @ModelAttribute("service") Service service,BindingResult result) {
+		if (result.hasErrors()) {
+			return "/AddService.jsp";
+		} else {
+			serviceService.createService(service);
+			return "redirect:/service/new" ;
+		}
+	}
+    @RequestMapping("/service_details/{id}")
+    public String serDetails(HttpSession session, Model model, @PathVariable("id") Long id) {
+        model.addAttribute("categories", categoryService.getAllCategories());
+		User user = userService.findUserById(id);
+		Service service = serviceService.findService(id);
+    	model.addAttribute("userName", user.getFirstName() + " " + user.getLastName());
+    	model.addAttribute("userNumber", user.getPhoneNumber());
+    	model.addAttribute("userPrice", service.getPrice());
+    	model.addAttribute("userDescription", service.getDescription());
+        return "serviceDetails.jsp";
+    }
+    
 
 }

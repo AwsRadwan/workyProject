@@ -49,8 +49,7 @@ public class Review {
     public void setText(String text) {
         this.text = text;
     }
-    
-    
+
 
     public Date getCreatedAt() {
         return createdAt;

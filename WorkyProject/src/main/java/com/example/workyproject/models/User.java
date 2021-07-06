@@ -33,7 +33,6 @@ public class User {
     @Transient
     @NotNull
     private String passwordConfirmation;
-    //    @NotNull
     private String city;
     //    @NotNull
     private String phoneNumber;
@@ -60,7 +59,6 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private List<Role> roles;
-
     //Getters and setters
 
     public List<Role> getRoles() {

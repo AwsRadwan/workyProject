@@ -58,7 +58,7 @@
                         <!--language code end here-->
                     </li>
                     <li><a href="/login"><i class="la la-plus-square"></i> <span>Login</span></a></li>
-                    <li><a href="/register"><i class="la la-key"></i> <span>Register</span></a></li>
+                    <li><a href="/registration"><i class="la la-key"></i> <span>Register</span></a></li>
                 </ul>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">
@@ -217,10 +217,6 @@
                     </div>
                     <h2>Login Via Social Accounts</h2>
                     <ul class="list-unstyled">
-                        <li><a href="https://www.facebook.com/" target="_blank" class="fb"><i
-                                class="fa fa-facebook"></i> Login Via Facebook</a></li>
-                        <li><a href="https://twitter.com/" target="_blank" class="tw"><i class="fa fa-twitter"></i>
-                            Login Via Twitter</a></li>
                         <li><a href="https://plus.google.com/" target="_blank" class="gp"><i
                                 class="fa fa-google-plus"></i> Login Via Google+</a></li>
                     </ul>
@@ -236,7 +232,7 @@
                                    id="input-email" class="form-control" name="username"/>
                         </div>
                         <div class="form-group">
-                            <i class="la la-unlock"></i><input type="text" name="password" value=""
+                            <i class="la la-unlock"></i><input type="password" name="password" value=""
                                                                placeholder="Password" id="input-password"
                                                                class="form-control"/>
                         </div>
@@ -281,7 +277,7 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/all_services">Services</a></li>
                     <li><a href="/login">Login</a></li>
-                    <li><a href="/register">Register</a></li>
+                    <li><a href="/registration">Register</a></li>
                     <li><a href="add_service">Add Service</a></li>
                 </ul>
             </div>

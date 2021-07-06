@@ -1,15 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%--
+  Created by IntelliJ IDEA.
+  User: Hatsune Miku
+  Date: 7/6/2021
+  Time: 12:13 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page isErrorPage="true" %>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IEl=edge">
+    <title>Dashboard Favourite Ads</title>
     <!-- Bootstrap stylesheet -->
     <link href="bootstrap4/css/bootstrap.min.css" rel="stylesheet">
     <!-- font -->
@@ -28,9 +32,10 @@
     <link href="js/owl-carousel/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
     <!--bootstrap select-->
     <link href="js/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css"/>
-
 </head>
 <body>
+
+
 <!--top start here -->
 <div class="top">
     <div class="container">
@@ -64,7 +69,6 @@
                         <li><a href="/login"><i class="la la-plus-square"></i> <span>Login</span></a></li>
                         <li><a href="/registration"><i class="la la-key"></i> <span>Register</span></a></li>
                     </c:if>
-
 
                 </ul>
             </div>
@@ -185,84 +189,177 @@
 </header>
 <!-- header end here -->
 
-<!-- slider start here -->
-<div class="slideshow owl-carousel">
-    <div class="item">
-        <img src="images/banner11.jpg" alt="banner" title="banner"/>
-    </div>
-    <div class="item">
-        <img src="images/banner.jpg" alt="banner" title="banner"/>
-    </div>
-    <div class="item">
-        <img src="images/banner22.jpg" alt="banner" title="banner"/>
-    </div>
-</div>
-<!-- slider end here -->
 
-<!-- browse start here -->
-<div class="browse">
+<div class="topimage">
+    <img src="images/bck_bg.jpg" class="img-fluid" alt="image" title="image">
+</div>
+
+<!-- ad-single start here -->
+<div class="commontop">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <h2>Browse Category</h2>
-                <hr/>
-                <ul class="list-inline">
-                    <li><a href="/selectCate/1"><img src="images/11.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Programming </p></a></li>
-                    <li><a href="/selectCate/2"><img src="images/22.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Accounting & Finance </p></a></li>
-                    <li><a href="/selectCate/3"><img src="images/33.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Project Management</p></a></li>
-                    <li><a href="/selectCate/4"><img src="images/44.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Writing & Copywriting </p></a></li>
-                    <li><a href="/selectCate/5"><img src="images/55.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Education & Training </p></a></li>
-                    <li><a href="/selectCate/6"><img src="images/66.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Graphic Design </p></a></li>
-                    <li><a href="/selectCate/7"><img src="images/77.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Marketing </p></a></li>
-                    <li><a href="/selectCate/8"><img src="images/88.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Translation </p></a></li>
-                    <li><a href="/selectCate/9"><img src="images/99.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Photography </p></a></li>
-                    <li><a href="/selectCate/10"><img src="images/a1.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> 3D Modeling & CAD </p></a></li>
-                    <li><a href="/selectCate/11"><img src="images/a2.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p>Structural Engineering</p></a></li>
-                    <li><a href="/selectCate/12"><img src="images/a3.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p>Mechanical Engineering</p></a></li>
-                    <li><a href="/selectCate/13"><img src="images/a4.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Architectural Engineering </p></a></li>
-                    <li><a href="/selectCate/14"><img src="images/a5.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Building Work </p></a></li>
-                    <li><a href="/selectCate/15"><img src="images/a6.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Employees & Worker </p></a></li>
-                    <li><a href="/selectCate/16"><img src="images/a7.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Handicrafts </p></a></li>
-                    <li><a href="/selectCate/17"><img src="images/a8.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Data Entry </p></a></li>
-                    <li><a href="/selectCate/18"><img src="images/a9.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Other </p></a></li>
+            <div class="col-sm-12 col-xs-12">
+                <div class="dashboard">
+                    <div class="profile">
+                        <div class="col-sm-3 col-xs-12">
+                            <img class="img-fluid" src="images/dashboard/dp.png" alt="image" title="image">
+                        </div>
+                        <div class="col-sm-9 col-xs-12 padd0">
+                            <h4>${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}</h4>
+                            <div class="common">
+                                <p class="des"><i class="la la-map-marker"></i> ${user.city}</p>
+                                <p class="des1">Created Account At: ${user.createdAt.toLocaleString()}</p>
+                            </div>
+                            <ul class="list-inline">
+                                <li><a href="/profile"><img src="images/dashboard/grid.png"
+                                                            alt="image" title="image"/>
+                                    <p>Dashboard</p></a></li>
+                                <li><a href="/dashboardmyservices"><img src="images/dashboard/card.png"
+                                                                        alt="image"
+                                                                        title="image"/>
+                                    <p>My Services</p></a></li>
+                                <li><a href="/requestedservices"><img src="images/dashboard/search.png"
+                                                                      alt="image" title="image"/>
+                                    <p>Requested Services</p></a></li>
+                                <li class="active"><a href="/dashboardmessages"><img src="images/dashboard/message.png"
+                                                                                     alt="image"
+                                                                                     title="image"/>
+                                    <p>Messages</p></a></li>
+                                <li><a href="/dashboardsettings"><img src="images/dashboard/setting.png" alt="image"
+                                                                      title="image"/>
+                                    <p>Settings</p></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="inner-message">
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-12">
+                                <div class="left">
+                                    <h2>Message</h2>
+                                    <ul class="nav">
+                                        <li>
+                                            <div class="image">
+                                                <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                                <div class="onhover">2</div>
+                                            </div>
+                                            <h5>John <span><i class="fa fa-circle color"></i></span></h5>
+                                            <p>lorem ipsum dolor sit amet...<span>2 hrs</span></p>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                                <div class="onhover">4</div>
+                                            </div>
+                                            <h5>Nikku <span><i class="fa fa-circle color"></i></span></h5>
+                                            <p>lorem ipsum dolor sit amet...<span>2 hrs</span></p>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                                <div class="onhover">6</div>
+                                            </div>
+                                            <h5>Jassica <span><i class="fa fa-circle color"></i></span></h5>
+                                            <p>lorem ipsum dolor sit amet...<span>2 hrs</span></p>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            </div>
+                                            <h5>Sumit Kumar <span><i class="fa fa-circle"></i></span></h5>
+                                            <p>lorem ipsum dolor sit amet...<span>2 hrs</span></p>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            </div>
+                                            <h5>Rohit <span><i class="fa fa-circle"></i></span></h5>
+                                            <p>lorem ipsum dolor sit amet...<span>2 hrs</span></p>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            </div>
+                                            <h5>Sumanlata <span><i class="fa fa-circle"></i></span></h5>
+                                            <p>lorem ipsum dolor sit amet...<span>2 hrs</span></p>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            </div>
+                                            <h5>William <span><i class="fa fa-circle"></i></span></h5>
+                                            <p>lorem ipsum dolor sit amet...<span>2 hrs</span></p>
+                                        </li>
+                                        <li>
+                                            <div class="image">
+                                                <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            </div>
+                                            <h5>Rock <span><i class="fa fa-circle"></i></span></h5>
+                                            <p>lorem ipsum dolor sit amet...<span>2 hrs</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-9 col-xs-12">
+                                <div class="msg-box">
+                                    <div class="comments">
+                                        <h2>Sumit Kumar <i class="fa fa-circle"></i></h2>
+                                        <div class="comment">
+                                            <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            <div class="comment-title">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus element
+                                            </div>
+                                        </div>
+                                        <div class="comment1">
+                                            <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            <div class="comment-title">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus element
+                                            </div>
+                                        </div>
+                                        <div class="comment">
+                                            <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            <div class="comment-title">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus element<br>
+                                                pulvinar ipsum, ut ultrices neque molestie eget.
+                                            </div>
+                                        </div>
+                                        <div class="comment1">
+                                            <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            <div class="comment-title">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing
+                                            </div>
+                                        </div>
+                                        <div class="comment">
+                                            <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            <div class="comment-title">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                                            </div>
+                                        </div>
+                                        <div class="comment1">
+                                            <img src="images/01.png" class="img-fluid" alt="image" title="image">
+                                            <div class="comment-title">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivam
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group col-sm-12">
+                                        <input class="form-control" id="comments" placeholder="Type your message..."
+                                               type="text">
+                                        <button type="button" class="btn-img"><i class="fa fa-picture-o"></i></button>
+                                        <button type="submit" id="sendMessage"><i class="la la-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!-- browse end here -->
+<!-- ad-single end here -->
 
-
-<!-- banner start here -->
-<div class="banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <img src="images/lookingforjobs.jpg" alt="Jobs" title="Add Your Service"/>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- banner end here -->
 
 <!-- footer start here -->
 <footer>
@@ -328,20 +425,9 @@
 <!--internal js-->
 <script src="js/owlinternal.js"></script>
 <script src="js/internal.js"></script>
+<script src="js/preetycheble/prettyCheckable.min.js"></script>
+<link rel="stylesheet" href="js/preetycheble/prettyCheckable.css"/>
 <script src="js/switcher.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-115890069-6"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-115890069-6');
-</script>
 
 </body>
 </html>

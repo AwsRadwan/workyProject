@@ -1,15 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%--
+  Created by IntelliJ IDEA.
+  User: Hatsune Miku
+  Date: 7/5/2021
+  Time: 9:41 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page isErrorPage="true" %>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
+    <title>Dashboard</title>
     <!-- Bootstrap stylesheet -->
     <link href="bootstrap4/css/bootstrap.min.css" rel="stylesheet">
     <!-- font -->
@@ -28,7 +32,6 @@
     <link href="js/owl-carousel/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
     <!--bootstrap select-->
     <link href="js/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css"/>
-
 </head>
 <body>
 <!--top start here -->
@@ -185,84 +188,77 @@
 </header>
 <!-- header end here -->
 
-<!-- slider start here -->
-<div class="slideshow owl-carousel">
-    <div class="item">
-        <img src="images/banner11.jpg" alt="banner" title="banner"/>
-    </div>
-    <div class="item">
-        <img src="images/banner.jpg" alt="banner" title="banner"/>
-    </div>
-    <div class="item">
-        <img src="images/banner22.jpg" alt="banner" title="banner"/>
-    </div>
+<div class="topimage">
+    <img src="images/bck_bg.jpg" class="img-fluid" alt="image" title="image">
 </div>
-<!-- slider end here -->
 
-<!-- browse start here -->
-<div class="browse">
+<!-- ad-single start here -->
+<div class="commontop">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-                <h2>Browse Category</h2>
-                <hr/>
-                <ul class="list-inline">
-                    <li><a href="/selectCate/1"><img src="images/11.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Programming </p></a></li>
-                    <li><a href="/selectCate/2"><img src="images/22.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Accounting & Finance </p></a></li>
-                    <li><a href="/selectCate/3"><img src="images/33.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Project Management</p></a></li>
-                    <li><a href="/selectCate/4"><img src="images/44.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Writing & Copywriting </p></a></li>
-                    <li><a href="/selectCate/5"><img src="images/55.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Education & Training </p></a></li>
-                    <li><a href="/selectCate/6"><img src="images/66.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Graphic Design </p></a></li>
-                    <li><a href="/selectCate/7"><img src="images/77.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Marketing </p></a></li>
-                    <li><a href="/selectCate/8"><img src="images/88.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Translation </p></a></li>
-                    <li><a href="/selectCate/9"><img src="images/99.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Photography </p></a></li>
-                    <li><a href="/selectCate/10"><img src="images/a1.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> 3D Modeling & CAD </p></a></li>
-                    <li><a href="/selectCate/11"><img src="images/a2.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p>Structural Engineering</p></a></li>
-                    <li><a href="/selectCate/12"><img src="images/a3.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p>Mechanical Engineering</p></a></li>
-                    <li><a href="/selectCate/13"><img src="images/a4.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Architectural Engineering </p></a></li>
-                    <li><a href="/selectCate/14"><img src="images/a5.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Building Work </p></a></li>
-                    <li><a href="/selectCate/15"><img src="images/a6.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Employees & Worker </p></a></li>
-                    <li><a href="/selectCate/16"><img src="images/a7.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Handicrafts </p></a></li>
-                    <li><a href="/selectCate/17"><img src="images/a8.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Data Entry </p></a></li>
-                    <li><a href="/selectCate/18"><img src="images/a9.png" alt="icon" title="icon" class="img-fluid"/>
-                        <p> Other </p></a></li>
+            <div class="col-sm-12 col-xs-12">
+                <div class="dashboard">
 
-                </ul>
+                    <div class="profile">
+                        <div class="col-sm-3 col-xs-12">
+                            <img class="img-fluid" src="images/dashboard/dp.png" alt="image" title="image">
+                        </div>
+                        <div class="col-sm-9 col-xs-12 padd0">
+                            <h4>${user.firstName.toUpperCase()} ${user.lastName.toUpperCase()}</h4>
+                            <div class="common">
+                                <p class="des"><i class="la la-map-marker"></i> ${user.city}</p>
+                                <p class="des1">Created Account At: ${user.createdAt.toLocaleString()}</p>
+                            </div>
+                            <ul class="list-inline">
+                                <li class="active"><a href="/profile"><img src="images/dashboard/grid.png"
+                                                                           alt="image" title="image"/>
+                                    <p>Dashboard</p></a></li>
+                                <li><a href="/dashboardmyservices"><img src="images/dashboard/card.png"
+                                                                        alt="image"
+                                                                        title="image"/>
+                                    <p>My Services</p></a></li>
+                                <li><a href="/requestedservices"><img src="images/dashboard/search.png"
+                                                                      alt="image" title="image"/>
+                                    <p>Requested Services</p></a></li>
+                                <li><a href="/dashboardmessages"><img src="images/dashboard/message.png" alt="image"
+                                                                      title="image"/>
+                                    <p>Messages</p></a></li>
+                                <li><a href="/dashboardsettings"><img src="images/dashboard/setting.png" alt="image"
+                                                                      title="image"/>
+                                    <p>Settings</p></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="inner">
+                        <p>There is no replacement of hard work for prosperity. No matter how talented you are, you’ve
+                            to work hard to excel in life. It’s not about competition only, it’s also about
+                            determination and consistency. We need to work hard for prosperity because success demands
+                            dedication. No matter which profession you choose which career you aim at, you’ve to work
+                            hard to perform the best and make it to the top.</p>
+                        <p><a>Learn How It Work </a> - Watch a short video that shows you have worky does its job.</p>
+                        <p><a>Get Help </a> - View our help section and FAQ to get started with Worky.</p>
+                    </div>
+                    <ul class="list-inline icons justify-content-center">
+                        <li>
+                            <div class="img"><img src="images/dashboard/cardboard.png" alt="image" title="image"/></div>
+                            <p><a href="/dashboardmyservices">My Services</a></p></li>
+                        <li>
+                            <div class="img"><img src="images/dashboard/messages.png" alt="image" title="image"/></div>
+                            <p><a href="/dashboardmessages">Messages</a></p></li>
+                        <li>
+                            <div class="img"><img src="images/dashboard/like.png" alt="image" title="image"/></div>
+                            <p><a href="/requestedservices">Requested Services</a></p></li>
+                        <li>
+                            <div class="img"><img src="images/dashboard/settings.png" alt="image" title="image"/></div>
+                            <p><a href="/dashboardsettings">Settings</a></p></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!-- browse end here -->
-
-
-<!-- banner start here -->
-<div class="banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <img src="images/lookingforjobs.jpg" alt="Jobs" title="Add Your Service"/>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- banner end here -->
+<!-- ad-single end here -->
 
 <!-- footer start here -->
 <footer>
@@ -328,20 +324,8 @@
 <!--internal js-->
 <script src="js/owlinternal.js"></script>
 <script src="js/internal.js"></script>
+<script src="js/preetycheble/prettyCheckable.min.js"></script>
+<link rel="stylesheet" href="js/preetycheble/prettyCheckable.css"/>
 <script src="js/switcher.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="true" src="https://www.googletagmanager.com/gtag/js?id=UA-115890069-6"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-115890069-6');
-</script>
-
 </body>
 </html>

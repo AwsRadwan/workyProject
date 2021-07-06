@@ -294,10 +294,10 @@ header .btn-primary i{
 .search .btn {
     position: absolute;
     background:#FB8A2E;
-    top: 0;
-    right: 15px;
-	border-radius:0 40px 40px 0;
-	padding: 9px 12px 5px;
+	top: 2px;
+	right: 17px;
+	border-radius: 0 40px 40px 0;
+	padding: 10px 12px 5px;
 }
 .search .btn i {
     color: #000;
@@ -2177,7 +2177,7 @@ footer .powered p span{
 .dashboard .profile{
 	background:#F5F5F5;
 	border-bottom:1px solid #E5E5E5;
-	height:220px;
+	height:239px;
 	display:flex;
 }
 .dashboard .profile img{
