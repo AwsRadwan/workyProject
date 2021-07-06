@@ -125,57 +125,10 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div id="logo">
-                    <a href="/"><img class="img-fluid logochange" src="images/logo.png" alt="logo" title="logo"/></a>
+                    <a href="/"><img src="images/logo.png" alt="logo" title="logo"/></a>
                 </div>
             </div>
-
             <div class="col-md-7 col-sm-7 col-xs-12">
-                <form class="form-horizontal category" method="post" action="/selectCate">
-                    <div class="row">
-                        <!-- <div class="col-sm-3 paddright">
-                        <div class="form-group">
-                        <select class="selectpicker form-control bs-select-hidden" name="location">
-                        <option value="1">Select City</option>
-                        <option value="0">Ludhiana</option>
-                        <option value="0">Jalandhar</option>
-                        <option value="0">Moga</option>
-                        <option value="0">Ambala</option>
-                        <option value="0">Amritsar</option>
-                        <option value="0">Delhi</option>
-                        </select>
-                        </div>
-                        </div> -->
-                        <div class="col-sm-3 paddright">
-                            <div class="form-group">
-                                <select class="selectpicker form-control bs-select-hidden" name="category" required>
-                                    <option value="Select Category" selected>Select Category</option>
-                                    <c:forEach items="${categories}" var="c">
-                                        <option value="${c.id}"><c:out value="${c.name}"></c:out></option>
-                                    </c:forEach>
-                                    <!-- <option value="0">Mobiles</option> -->
-                                    <!-- <option value="0">Electonics</option>
-                                    <option value="0">Real Estate</option>
-                                    <option value="0">Fashion</option>
-                                    <option value="0">Furniture</option>
-                                    <option value="0">Jobs</option>
-                                    <option value="0">Services</option>
-                                    <option value="0">Pets</option>
-                                    <option value="0">Education</option>
-                                    <option value="0">Matrimony</option>
-                                    <option value="0">Note and Coins</option> -->
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 search">
-                            <div class="form-group">
-                                <input name="searsh" value="" class="form-control" placeholder="Enter Keyword"
-                                       type="text">
-                                <button type="submit" value="submit" class="btn"><i class="icon_search"
-                                                                                    aria-hidden="true"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12 center">
                 <button class="btn-primary btn-block" type="button" onclick="location.href='/add_service'"><i
@@ -241,11 +194,13 @@
                             <div class="product-layout product-list">
                                 <div class="product-thumb">
                                     <div class="image">
-                                        <a href="ads_single_view.html"><img src="images/mobile/01.jpg" alt="image"
-                                                                            title="image" class="img-fluid"></a>
+                                        <a href="/service_details/${service.id}"><img
+                                                src="/getStudentPhoto/${service.id}" alt="image"
+                                                title="image" class="img-fluid"
+                                                style="width: 263px; height: 206px;"></a>
                                     </div>
                                     <div class="caption">
-                                        <h4><a href="ads_single_view.html">${service.name}</a></h4>
+                                        <h4><a href="/service_details/${service.id}">${service.name}</a></h4>
                                         <p class="des">Category: ${service.category.name}</p>
                                         <ul class="list-unstyled">
                                             <li><i class="la la-map-marker"></i> Location,${service.creator.city}</li>
@@ -318,7 +273,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-xs-12 text-center">
-                    <p>© 2017 <span>Classifiedspot</span>. All rights reserved. Theme by <span>TMD Studio</span></p>
+                    <p>© 2021 <span>Classifiedspot</span>. All rights reserved. Theme by <span>TMD Studio</span></p>
                 </div>
             </div>
         </div>
@@ -347,21 +302,28 @@
 
     //REdirects to the view route
     function doView(id) {
-        window.location = "/service/" + id;
+        window.location = "/service_details/" + id;
     }
 
     //REdirects to the edit route
     function doEdit(id) {
-        window.location = "/service/edit/" + id;
+        window.location = "/edit_service/" + id;
     }
 
     //REdirects to the delete route
     function doDelete(id) {
-        window.location = "/service/delete/" + id;
+        window.location = "/delete_service/" + id;
     }
 
-
 </script>
+
+
+
+
+
+
+
+
 
 </body>
 </html>

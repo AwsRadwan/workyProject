@@ -3,6 +3,7 @@ package com.example.workyproject.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.sql.Blob;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class Service {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull
-    @Size(min=3 , message = "Service name should be at least 3 characters in length")
+    @Size(min = 3, message = "Service name should be at least 3 characters in length")
     private String name;
     @NotNull
     private String description;
@@ -24,7 +25,17 @@ public class Service {
     @Column(updatable = false)
     private Date createdAt;
     private Date updatedAt;
-    
+    @Lob
+    private byte[] cover;
+
+    public byte[] getCover() {
+        return cover;
+    }
+
+    public void setCover(byte[] cover) {
+        this.cover = cover;
+    }
+
     private String img;
 
     //RelationShips
@@ -32,11 +43,11 @@ public class Service {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creator_id")
     private User creator;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
-    
+
     @OneToMany(mappedBy = "service",
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
@@ -78,34 +89,33 @@ public class Service {
     public void setPrice(Double price) {
         this.price = price;
     }
-    
-    
+
 
     public String getImg() {
-		return img;
-	}
+        return img;
+    }
 
-	public void setImg(String img) {
-		this.img = img;
-	}
+    public void setImg(String img) {
+        this.img = img;
+    }
 
-	public Category getCategory() {
-		return category;
-	}
+    public Category getCategory() {
+        return category;
+    }
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
-	public List<Review> getReviews() {
-		return reviews;
-	}
+    public List<Review> getReviews() {
+        return reviews;
+    }
 
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
-	}
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
 
-	public String getRating() {
+    public String getRating() {
         return rating;
     }
 
@@ -148,7 +158,6 @@ public class Service {
     protected void onUpdate() {
         this.updatedAt = new Date();
     }
-
 
 
 }

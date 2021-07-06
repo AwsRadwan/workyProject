@@ -2,16 +2,16 @@
     const where = encodeURIComponent(JSON.stringify({
         "country": {
             "__type": "Pointer",
-            "className": "Continentscountriescities_Country",
+            "className": "Country",
             "objectId": "yP5OXMfgmQ"
         }
     }));
     const response = await fetch(
-        `https://parseapi.back4app.com/classes/Continentscountriescities_Subdivisions_States_Provinces?keys=Subdivision_Name&where=${where}`,
+        `https://parseapi.back4app.com/classes/Subdivisions_States_Provinces?count=1&where=${where}`,
         {
             headers: {
-                'X-Parse-Application-Id': 'exEID19NZ5pALhsaWP5zEIKIfcZNMEJlMZMhS59u', // This is your app's application id
-                'X-Parse-REST-API-Key': 'oiz8oqOM5jT061r00uoL6YxwTCMLdE2gfM4MvBva', // This is your app's REST API key
+                'X-Parse-Application-Id': 'mxsebv4KoWIGkRntXwyzg6c6DhKWQuit8Ry9sHja', // This is the fake app's application id
+                'X-Parse-Master-Key': 'TpO0j3lG2PmEVMXlKYQACoOXKQrL3lwM0HwR9dbH', // This is the fake app's readonly master key
             }
         }
     );

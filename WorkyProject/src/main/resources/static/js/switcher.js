@@ -19,10 +19,10 @@ $(document).ready(function(){
 			this.disabled = true;
 			if (this.getAttribute('title') == styleName) this.disabled = false;
 		});
-		$('.logochange').attr('src','images/'+styleName+'.png');
-        $('.bannerchange').attr('src','images/banner/'+styleName+'.jpg');
+		$('.logochange').attr('src','/images/'+styleName+'.png');
+        $('.bannerchange').attr('src','/images/banner/'+styleName+'.jpg');
 		createCookie('style', styleName, 365);
-		$('.sliderchange').attr('src','images/slider/'+styleName+'.jpg');
+		$('.sliderchange').attr('src','/images/slider/'+styleName+'.jpg');
 		createCookie('style', styleName, 365);
 	}
 	
@@ -44,7 +44,7 @@ $(document).ready(function(){
 			this.disabled = true;
 			if (this.getAttribute('title') == styleName) this.disabled = false;
 		});
-		$('.logochange').attr('src','images/'+styleName+'.png');
+		$('.logochange').attr('src','/images/'+styleName+'.png');
 	}
 	
 });

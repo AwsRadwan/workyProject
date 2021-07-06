@@ -67,8 +67,6 @@
                         <li><a href="/login"><i class="la la-plus-square"></i> <span>Login</span></a></li>
                         <li><a href="/registration"><i class="la la-key"></i> <span>Register</span></a></li>
                     </c:if>
-
-
                 </ul>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12">
@@ -126,57 +124,10 @@
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div id="logo">
-                    <a href="/"><img class="img-fluid logochange" src="images/logo.png" alt="logo" title="logo"/></a>
+                    <a href="/"><img src="images/logo.png" alt="logo" title="logo"/></a>
                 </div>
             </div>
-
             <div class="col-md-7 col-sm-7 col-xs-12">
-                <form class="form-horizontal category" method="post" action="/selectCate">
-                    <div class="row">
-                        <!-- <div class="col-sm-3 paddright">
-                        <div class="form-group">
-                        <select class="selectpicker form-control bs-select-hidden" name="location">
-                        <option value="1">Select City</option>
-                        <option value="0">Ludhiana</option>
-                        <option value="0">Jalandhar</option>
-                        <option value="0">Moga</option>
-                        <option value="0">Ambala</option>
-                        <option value="0">Amritsar</option>
-                        <option value="0">Delhi</option>
-                        </select>
-                        </div>
-                        </div> -->
-                        <div class="col-sm-3 paddright">
-                            <div class="form-group">
-                                <select class="selectpicker form-control bs-select-hidden" name="category" required>
-                                    <option value="Select Category" selected>Select Category</option>
-                                    <c:forEach items="${categories}" var="c">
-                                        <option value="${c.id}"><c:out value="${c.name}"></c:out></option>
-                                    </c:forEach>
-                                    <!-- <option value="0">Mobiles</option> -->
-                                    <!-- <option value="0">Electonics</option>
-                                    <option value="0">Real Estate</option>
-                                    <option value="0">Fashion</option>
-                                    <option value="0">Furniture</option>
-                                    <option value="0">Jobs</option>
-                                    <option value="0">Services</option>
-                                    <option value="0">Pets</option>
-                                    <option value="0">Education</option>
-                                    <option value="0">Matrimony</option>
-                                    <option value="0">Note and Coins</option> -->
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 search">
-                            <div class="form-group">
-                                <input name="searsh" value="" class="form-control" placeholder="Enter Keyword"
-                                       type="text">
-                                <button type="submit" value="submit" class="btn"><i class="icon_search"
-                                                                                    aria-hidden="true"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12 center">
                 <button class="btn-primary btn-block" type="button" onclick="location.href='/add_service'"><i
@@ -266,9 +217,11 @@
         <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-12 matter">
                 <img src="images/logo.png" class="img-fluid logochange" alt="logo" title="logo"/>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc est justo, aliquam nec tempor
-                    fermentum, commodo et libero. Quisque et rutrum arcu. Vivamus dictum tincidunt magna id euismod. Nam
-                    sollicitudin mi quis orci lobortis feugiat.</p>
+                <p>There is no replacement of hard work for prosperity. No matter how talented you are, you’ve
+                    to work hard to excel in life. It’s not about competition only, it’s also about
+                    determination and consistency. We need to work hard for prosperity because success demands
+                    dedication. No matter which profession you choose which career you aim at, you’ve to work
+                    hard to perform the best and make it to the top.</p>
 
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 info">
