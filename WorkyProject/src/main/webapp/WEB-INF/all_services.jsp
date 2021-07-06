@@ -156,7 +156,7 @@
 			<div class="col-lg-10 col-sm-9 col-md-9 padd0 col-xs-12 catebox">
 				<div class="row">
 
-					<c:forEach items="${category.services()}" var="s">
+					<c:forEach items="${services}" var="s">
 						<div class="product-layout product-grid col-lg-3 col-md-4 col-sm-6 col-xs-12 cols">
 							<div class="product-thumb">
 								<div class="image">
@@ -165,10 +165,10 @@
 								</div>
 								<div class="caption">
 									<h4><a href="/this_service/${s.id}"> <c:out value="${s.name}"></c:out> </a></h4>
-									<p class="des">Category : <c:out value="${s.category}"></c:out> </p>
+									<p class="des">Category : <c:out value="${s.category.name}"></c:out> </p>
 									<ul class="list-unstyled">
-										<li><i class="la la-map-marker"></i> <c:out value="${s.user.city}"></c:out> </li>
-										<li><i class="la la-clock-o"></i> <c:out value="${s.created_at}"></c:out> </li>
+										<li><i class="la la-map-marker"></i> <c:out value="${s.creator.city}"></c:out> </li>
+										<li><i class="la la-clock-o"></i> <c:out value="${s.createdAt.toString() }"></c:out> </li>
 									</ul>
 								</div>
 							</div>
